@@ -1,0 +1,113 @@
+
+
+
+.horizontalScroll {
+    @apply overflow-auto flex flex-row;
+
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+
+    scrollbar-width: none;
+    /* Firefox */
+
+    @apply relative z-[1];
+}
+
+.horizontalScroll::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+.horizontalScrollWrapper {
+    @apply w-full relative z-[0];
+
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+
+    scrollbar-width: none;
+    /* Firefox */
+
+    .scrollArrow {
+        position: absolute;
+
+        cursor: pointer;
+
+        z-index: 5;
+
+        top: 5%;
+
+        width: 30px;
+
+        height: 30px;
+
+        display: flex;
+
+        justify-content: flex-end;
+
+        align-items: center;
+
+        &.left {
+            left: 1rem;
+            // Position from the left
+
+            transform: scale(130%) rotate(180deg);
+        }
+
+        &.right {
+            right: 1rem;
+
+            transform: scale(130%);
+        }
+    }
+}
+
+.horizontalScrollFades.blueFade {
+    @apply absolute top-0 h-full w-36 pointer-events-none z-[1];
+
+    background: linear-gradient(to right,
+
+            rgba(236, 242, 253, 1) 30%,
+
+            rgba(236, 242, 253, 0) 100%);
+}
+
+.horizontalScrollFades.whiteFade {
+    @apply absolute top-0 h-full w-36 pointer-events-none z-[1];
+
+    background: linear-gradient(to right,
+
+            rgba(255, 255, 255, 1) 30%,
+
+            rgba(255, 255, 255, 0) 100%);
+}
+
+.horizontalScrollFades.left {
+    @apply left-0 z-[2];
+
+    transition: opacity 0.3s ease-in-out;
+
+    opacity: 0;
+}
+
+.horizontalScrollFades.left.visible {
+    opacity: 1;
+}
+
+.horizontalScrollFades.right {
+    @apply right-0;
+
+    transition: opacity 0.3s ease-in-out;
+
+    opacity: 0;
+
+    transform: rotate(180deg);
+}
+
+.horizontalScrollFades.right.visible {
+    opacity: 1;
+}
+
+.horizontalScrollFades.right.visible {
+    opacity: 1;
+}
+

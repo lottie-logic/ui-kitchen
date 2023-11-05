@@ -1,0 +1,109 @@
+.verticalScroll {
+    @apply overflow-auto flex flex-col h-[600px] ;
+
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+
+    scrollbar-width: none;
+    /* Firefox */
+
+    @apply relative z-[1];
+}
+
+.verticalScroll::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+.verticalScrollWrapper {
+    @apply w-full relative z-[0];
+
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+
+    scrollbar-width: none;
+    /* Firefox */
+
+    .scrollArrow {
+        position: absolute;
+
+        cursor: pointer;
+
+        z-index: 5;
+
+        top: 5%;
+
+        width: 30px;
+
+        height: 30px;
+
+        display: flex;
+
+        justify-content: flex-end;
+
+        align-items: center;
+
+        &.left {
+            left: 1rem;
+            // Position from the left
+
+            transform: scale(130%) rotate(180deg);
+        }
+
+        &.right {
+            right: 1rem;
+
+            transform: scale(130%);
+        }
+    }
+}
+
+.verticalScrollFades.blueFade {
+    @apply absolute top-0 h-full w-36 pointer-events-none z-[1];
+
+    background: linear-gradient(to right,
+
+            rgba(236, 242, 253, 1) 30%,
+
+            rgba(236, 242, 253, 0) 100%);
+}
+
+.verticalScrollFades.whiteFade {
+    @apply absolute top-0 h-full w-36 pointer-events-none z-[1];
+
+    background: linear-gradient(to right,
+
+            rgba(255, 255, 255, 1) 30%,
+
+            rgba(255, 255, 255, 0) 100%);
+}
+
+.verticalScrollFades.left {
+    @apply left-0 z-[2];
+
+    transition: opacity 0.3s ease-in-out;
+
+    opacity: 0;
+}
+
+.verticalScrollFades.left.visible {
+    opacity: 1;
+}
+
+.verticalScrollFades.right {
+    @apply right-0;
+
+    transition: opacity 0.3s ease-in-out;
+
+    opacity: 0;
+
+    transform: rotate(180deg);
+}
+
+.verticalScrollFades.right.visible {
+    opacity: 1;
+}
+
+.verticalScrollFades.right.visible {
+    opacity: 1;
+}
