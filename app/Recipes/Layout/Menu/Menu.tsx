@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HorizontalScroll from "../../HorizontalScroll/HorizontalScroll";
+import HorizontalScroll from "../../HorizontalScroll/Fancy/HorizontalScrollFancy";
 import KittenCards from "@/app/DemoContent/KittenCards";
 import VerticalScroll from "../../VerticalScroll/VerticalScroll";
 
@@ -14,7 +14,7 @@ interface ButtonConfig {
 
 const buttonConfigs: ButtonConfig[] = [
   { label: "Horizontal scroller", content: "Content 1" },
-  { label: "Button 2", content: "Content 2" },
+  { label: "Vertical scroller", content: "Content 2" },
   { label: "Button 3", content: "Content 3" },
   { label: "Button 3", content: "Content 4" },
   { label: "Button 3", content: "Content 5" },

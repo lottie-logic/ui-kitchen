@@ -2,7 +2,7 @@
 
 
 .horizontalScroll {
-    @apply overflow-auto flex flex-row;
+    @apply overflow-x-auto overflow-y-hidden flex flex-row;
 
     -ms-overflow-style: none;
     /* Internet Explorer 10+ */
@@ -10,7 +10,7 @@
     scrollbar-width: none;
     /* Firefox */
 
-    @apply relative z-[1];
+    @apply relative ;
 }
 
 .horizontalScroll::-webkit-scrollbar {
@@ -19,7 +19,7 @@
 }
 
 .horizontalScrollWrapper {
-    @apply w-full relative z-[0];
+    @apply w-full relative ;
 
     -ms-overflow-style: none;
     /* Internet Explorer 10+ */
@@ -61,18 +61,10 @@
     }
 }
 
-.horizontalScrollFades.blueFade {
-    @apply absolute top-0 h-full w-36 pointer-events-none z-[1];
 
-    background: linear-gradient(to right,
 
-            rgba(236, 242, 253, 1) 30%,
-
-            rgba(236, 242, 253, 0) 100%);
-}
-
-.horizontalScrollFades.whiteFade {
-    @apply absolute top-0 h-full w-36 pointer-events-none z-[1];
+.horizontalScrollFades {
+    @apply absolute top-0 h-full w-36 pointer-events-none z-[6];
 
     background: linear-gradient(to right,
 

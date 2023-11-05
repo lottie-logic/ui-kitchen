@@ -1,4 +1,4 @@
-import styles from "./HorizontalScroll.module.scss";
+// import styles from "./HorizontalScroll.module.scss";
 
 import React, {
   ReactNode,
@@ -8,14 +8,12 @@ import React, {
   useState,
 } from "react";
 
-import { RightArrow } from "../Icons/RightArrow";
-
 interface HorizontalScrollProps {
   children: ReactNode;
   blueFade?: boolean;
 }
 
-const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
+const HorizontalScrollSimple: React.FC<HorizontalScrollProps> = ({
   children,
   blueFade = false,
 }) => {
@@ -57,43 +55,7 @@ const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
 
   const fadeClass = blueFade ? "blue-fade" : "white-fade";
 
-  return (
-    <div className={styles.horizontalScrollWrapper}>
-      {canScrollLeft && (
-        <button
-          className={`${styles.scrollArrow} ${styles.left}`}
-          onClick={() => scroll("left")}
-        >
-          <RightArrow theme="currentColor" />
-        </button>
-      )}
-      <div
-        className={`${styles.horizontalScrollFades} ${
-          styles.left
-        } ${fadeClass} ${isScrolled ? styles.visible : styles.invisible}`}
-      ></div>
-      <div
-        className={styles.horizontalScroll}
-        onScroll={handleScroll}
-        ref={scrollContainerRef}
-      >
-        {children}
-      </div>
-      <div
-        className={`${styles.horizontalScrollFades} ${
-          styles.right
-        } ${fadeClass} ${canScrollRight ? styles.visible : styles.invisible}`}
-      ></div>
-      {canScrollRight && (
-        <button
-          className={`${styles.scrollArrow} ${styles.right}`}
-          onClick={() => scroll("right")}
-        >
-          <RightArrow theme="currentColor" />
-        </button>
-      )}
-    </div>
-  );
+  return <div className="overflow-y-scroll flex flex-row ">{children}</div>;
 };
 
-export default HorizontalScroll;
+export default HorizontalScrollSimple;

@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import Menu from "./Recipes/Layout/Menu/Menu";
-import HorizontalScroll from "./Recipes/HorizontalScroll/HorizontalScroll";
+import HorizontalScrollFancy from "./Recipes/HorizontalScroll/Fancy/HorizontalScrollFancy";
+import HorizontalScrollSimple from "./Recipes/HorizontalScroll/Simple/HorizontalScrollSimple";
 import KittenCards from "./DemoContent/KittenCards";
 import { useState } from "react";
+import VerticalScroll from "./Recipes/VerticalScroll/VerticalScroll";
 
 export default function Home() {
   const [activeContent, setActiveContent] = useState("Content 1");
@@ -13,12 +15,29 @@ export default function Home() {
     switch (activeContent) {
       case "Content 1":
         return (
-          <HorizontalScroll>
-            <KittenCards />
-          </HorizontalScroll>
+          <div>
+            <h2>
+              <strong>Simple</strong> tailwindcss
+            </h2>
+            <HorizontalScrollSimple>
+              <KittenCards />
+            </HorizontalScrollSimple>
+
+            <h2>
+              <div className="h-8"></div>
+              <strong>Fancy Faded Edges & Arrows</strong> SCSS + tailwindcss
+            </h2>
+            <HorizontalScrollFancy>
+              <KittenCards />
+            </HorizontalScrollFancy>
+          </div>
         );
-      // case "Content 2":
-      //   return <Content2 />;
+      case "Content 2":
+        return (
+          <VerticalScroll>
+            <KittenCards />
+          </VerticalScroll>
+        );
       // case "Content 3":
       //   return <Content3 />;
       default:
@@ -28,14 +47,16 @@ export default function Home() {
 
   return (
     <main className=" h-screen w-full  border-2">
-      <div className=" h-[10%]  border-2">upper header</div>
+      <div className=" h-[10%]  border-2">tailwindcss component library</div>
       <div className="flex flex-1  h-[70%] w-full">
         <div className=" w-[30%]  border-2">sideBar</div>
         <div className=" w-[70%] flex flex-row">
-          <div className="w-[30%]  border-2">
+          <div className="w-[30%]  border-2 ">
             <Menu setActiveContent={setActiveContent} />
           </div>
+
           <div className="p-5 border overflow-clip w-[70%]">
+            {/* <div>show code / show ui button choice changes this window</div> */}
             {renderContent()}
           </div>
         </div>

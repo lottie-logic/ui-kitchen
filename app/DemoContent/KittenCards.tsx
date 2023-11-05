@@ -8,7 +8,7 @@ const KittenCards: React.FC = () => {
       {cards.map((cardNumber) => (
         <div
           key={cardNumber}
-          className="bg-cover bg-center h-14 rounded-lg shadow-lg"
+          className="bg-cover bg-center h-24 w-24 rounded-lg shadow-lg mr-4 mb-4"
           style={{
             backgroundImage: `url('https://placekitten.com/g/300/300')`,
           }}
